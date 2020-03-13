@@ -2,6 +2,7 @@ from app.api.event import user_event_namespace
 from flask_restplus import Resource, fields
 from app.api.event.models import Event
 import threading
+from flask import request
 
 from app.api.event.user_event import (
     event_notify_user,
@@ -28,7 +29,8 @@ class UserEvent(Resource):
 
     @user_event_namespace.marshal_with(event_model, as_list=True)
     def get(self):
-        # req = requests.get(url)
+        """This is just for testing I would obviously get the URL and Consume the url and data"""
+        # req = request.get("")
         # data = req.json()
         # print(data)
         query = Event.query.all()

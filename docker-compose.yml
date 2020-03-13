@@ -14,9 +14,11 @@ services:
       - APP_SETTINGS=app.config.DevelopmentConfig
       - DATABASE_URL=postgresql://postgres:postgres@event-db:5432/event_dev
       - DATABASE_TESTING_URL=postgresql://postgres:postgres@event-db:5432/event_dev
-      - TWILIO_AUTH_TOKEN=64f2d42c272cbe14d84a0fe08c50c99b
+      - TWILIO_AUTH_TOKEN=b9255c1b474b0de9843f45378375ad0e
       - TWILIO_ACCOUNT_SID=ACf84089dffba0280beaaf81e4fa7d2944
       - SERVICE_INSTANCE_SID=IS25d18fb4ea71fd1fa9043e4013993a26
+      - SENDER_PHONE_NUMBER=+18478659454
+      - RECEIVER_PHONE_NUMBER=+919826376555
     depends_on:
       - event-db
 

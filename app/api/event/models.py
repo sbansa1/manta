@@ -1,8 +1,9 @@
+from app.api.event.utils_db import ResourceMixin
 from app.extensions import db
 from sqlalchemy.dialects.postgresql import JSON
 
 
-class Event(db.Model):
+class Event(db.Model, ResourceMixin):
 
     __tablename__ = "events"
 
