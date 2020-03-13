@@ -1,10 +1,8 @@
 import time
 import os
-from flask import current_app
 from app.api.event.models import Event
-from app.extensions import db, client
+from app.extensions import client
 from twilio.rest import TwilioException
-from collections import deque
 
 
 def logger(msg):
@@ -54,7 +52,7 @@ def event_first_bill_pay(event_type, data):
                 logger("Push Notification sent")
     event = Event(**parse_data(data))
     event.save()
-    return {"Message": "The event has been inserted"}, 201
+    return {"Message": "The event has been inserted and the user has been notified"}, 201
 
 
 def parse_data(data):
@@ -95,8 +93,6 @@ def event_notify_user(event_type, data):
         )
         status_notification(message)
         logger("The User has been notified")
-
-        return True
     return {"message": "The User has been notified"}, 200
 
 
